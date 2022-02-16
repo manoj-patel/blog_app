@@ -1,0 +1,64 @@
+{% extends 'user/base.html' %}
+
+{% load static %}
+
+{% block title%}
+  <title>Register</title>
+{% endblock %}
+
+
+{% block content %}
+
+    <form method="POST" class="signup-form">
+
+      {% if messages %}
+
+      {% for message in messages %}
+        <p class="alert alert-danger mx-auto "> {{message}}</p>
+
+        {% endfor %}
+      {% endif %}
+
+
+      {% csrf_token %}
+
+
+        {% if not form.fname.value is None %}
+        
+        <input type="text" name="fname" class="form-control" value="{{ form.fname.value }}" id="inputEmail3" placeholder="First Name" required>
+        
+        {% else %}
+        <input type="text" name="fname" class="form-control" id="inputEmail3" placeholder="First Name" required>
+        
+        {% endif %}
+      
+          
+        {% if not form.lname.value is None %}
+      
+        <input type="text" name="lname" class="form-control" value={{ form.lname.value }} id="inputEmail3" placeholder="Last Name" required>
+
+
+        {% else %}
+        <input type="text" name="lname" class="form-control" id="inputEmail3" placeholder="Last Name " required>
+        
+        {% endif %}
+
+
+        {% if not form.email.value is None %}
+      
+        <input type="email" name="email" class="form-control" value={{ form.email.value }} id="inputEmail3" placeholder="Email" required>
+
+
+        {% else %}
+        <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email" required>
+        
+
+        {% endif %}
+        <input type="password" name="password1" class="form-control"  id="inputPassword3" placeholder="Password" required>
+        <span id="message1"></span>
+        <input type="password" name = "password2" class="form-control" id="inputPassword3" placeholder="Confirm Password" required>
+         
+        <button type="submit" class="btn btn-primary" id="btnSubmit">Signup</button>
+     
+    </form>
+    {% endblock %}

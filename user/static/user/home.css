@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+
+.nav{
+    background: beige;
+    padding: 12px;
+    font-family: 'Jost', sans-serif;
+    font-weight: bold;
+}
+
+.nav li {
+    margin: 10px 12px;
+    font-size: 1.2em;
+}
+
+.nav li a{
+    color: rgb(143, 143, 121);
+}
+
+.nav-btn1,.nav-btn2,.nav-btn3 {
+    border-radius: 22px;
+    background: none;
+    outline: none;
+    border: 1px solid rgb(172, 172, 152);
+    box-shadow: inset 0px 0px 0px rgb(172, 172, 152);
+    transition: all 0.4s !important;
+}
+
+.nav-btn1 a:hover,.nav-btn2 a:hover,.nav-btn3 a:hover {
+    color: white;
+    transition: all 0.4s;
+}
+
+.nav-btn1:hover {
+    box-shadow: inset 170px 0px 0px rgb(172, 172, 152);
+}
+
+.nav-btn2:hover {
+    box-shadow: inset 0px 0px 0px 30px rgb(172, 172, 152);
+}
+
+.nav-btn3:hover {
+    box-shadow: inset -170px 0px 0px rgb(172, 172, 152);
+}
+
+.login-form,.signup-form{
+    border-radius: 50px;
+    position: absolute;
+    width: 550px;
+    height: 500px;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 30px 0 30px 80px;
+    background: beige;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.signup-form{
+    height: 570px;
+    top: 57%;
+}
+
+#inputEmail3,#inputPassword3,#autoSizingSelect{
+    /* background: whitesmoke; */
+    border: none;
+    border-radius: 22px;
+    color: rgb(122, 122, 109);
+    font-family: 'Jost', sans-serif;
+    font-size: 1.2em;
+    letter-spacing: 0.1px;
+    margin: 20px;
+    width: 400px;
+    height: 52px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+#inputEmail3::placeholder,#inputPassword3::placeholder{
+    color: rgb(172, 172, 152);
+}
+
+#btnSubmit{
+    border: 1px solid rgb(172, 172, 152);
+    border-radius: 22px;
+    font-family: 'Jost', sans-serif;
+    font-size: 1.15em;
+    padding: 10px 20px;
+    margin-left: 160px;
+    background: rgb(172, 172, 152);
+}
+
+
+#id_fname
+{
+     border: none;
+    border-radius: 22px;
+    color: rgb(122, 122, 109);
+    font-family: 'Jost', sans-serif;
+    font-size: 1.2em;
+    letter-spacing: 0.1px;
+    margin: 20px;
+    width: 400px;
+    height: 52px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}

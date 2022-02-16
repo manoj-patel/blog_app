@@ -1,0 +1,30 @@
+{% extends 'user/base.html' %}
+
+{% load static %}
+
+{% block title%}
+
+  <title>Login</title>
+
+{% endblock %}
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+
+  <li class="">{{ message }}</li>
+
+{% endfor %}
+{% endif %}
+
+    <form method="POST" class="login-form">
+      {% csrf_token %}
+      <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email">
+      
+      <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
+
+      <button type="submit" class="btn btn-primary" id="btnSubmit">Login</button>
+  </form>
+
+  {% endblock %}
