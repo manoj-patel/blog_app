@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
 
+
 class registration_form(UserCreationForm):
     fname = forms.CharField(max_length=200)
     lname = forms.CharField(max_length=200)
@@ -32,3 +33,4 @@ class registration_form(UserCreationForm):
         password = self.cleaned_data['password1']
 
         user = User.objects.create_user(username=username,first_name=fname,last_name=lname,email=email,password=password)
+        
