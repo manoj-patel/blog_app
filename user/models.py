@@ -1,6 +1,5 @@
 from distutils.command.upload import upload
 from email.policy import default
-from tkinter import CASCADE
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
@@ -38,6 +37,16 @@ class profile(models.Model):
 	    super(profile,self).save(*args, **kwargs)
 
 
+class comments(models.Model):
+    date_comment = models.DateTimeField(default=timezone.now)
+    date_update_comment = models.DateTimeField(default=timezone.now)
+    post_super = models.ForeignKey(post,on_delete=models.CASCADE)
+    name = models.CharField(max_length=200)
+    email = models.EmailField()
+    comment = models.TextField()
 
+    def __str__(self):
+        return self.post_super.title +" - "+ self.name
 
-
+    
+ 

@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
-
-from user.forms import registration_form
+from django.contrib.auth.decorators import login_required
+from user.forms import registration_form,post_form
 # Create your views here.
 
 def login_view(request):
@@ -57,6 +57,20 @@ def logout_view(request):
 
 
 
+def post_get_view(request):
+    pass
+
+@login_required()
+def post_post_view(request):
+    form = post_form()
+    if request.method == 'POST':
+        print(request.user)
+        form = post_form(request.POST)
+        if form.is_valid():
+            form.save()
+
+
+    return render(request,'user/blog_post.html',)
 
 
 

@@ -1,0 +1,79 @@
+{% extends 'user/base.html' %}
+
+{% load static %}
+
+{% block title%}
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <title>Register</title>
+
+
+  <style>
+    body {
+    font-family: 'Lato', sans-serif
+}
+
+h1 {
+    margin-bottom: 40px
+}
+
+label {
+    color: #333
+}
+
+.btn-send {
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    width: 80%;
+    margin-left: 3px
+}
+
+.help-block.with-errors {
+    color: #ff5050;
+    margin-top: 5px
+}
+
+.card {
+    margin-left: 10px;
+    margin-right: 10px
+}
+  </style>
+{% endblock %}
+
+{% block content %}
+<div class="container">] <div class=" text-center mt-5 ">
+  <h1>Blog Post</h1>
+</div>
+<div class="row ">
+  <div class="col-lg-7 mx-auto">
+      <div class="card mt-2 mx-auto p-4 bg-light">
+          <div class="card-body bg-light">
+              <div class="container">
+                  <form id="contact-form" role="form" method="POST">
+                    {% csrf_token %}
+                      <div class="controls">
+                          <div class="row">
+                              <div class="col-md-6">
+                                  <div class="form-group"> <label for="form_name">Title *</label> <input id="form_name" type="text" name="title" class="form-control" placeholder="Title *" required="required" data-error="Title is required."> </div>
+                              </div>
+                             
+                          </div>
+                         
+                          <div class="row">
+                              <div class="col-md-12">
+                                  <div class="form-group"> <label for="form_message">Content *</label> <textarea id="form_message" name="content" class="form-control" placeholder="Write your message here." rows="4" required="required" data-error="Please, leave us a message."></textarea> </div>
+                              </div>
+                              <div class="col-md-12"> <input type="submit" class="btn btn-success btn-send pt-2 btn-block " value="Publish"> </div>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div> <!-- /.8 -->
+  </div> <!-- /.row-->
+</div>
+</div>
+{% endblock %}
