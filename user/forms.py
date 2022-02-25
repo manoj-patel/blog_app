@@ -46,4 +46,10 @@ class post_form(ModelForm):
         fields = ['title','content']
 
 
+    def save(self,request):
+        title = self.cleaned_data['title']
+        content = self.cleaned_data['content']
+
+        post.objects.create(title=title,content=content,author=request.user)
+
     

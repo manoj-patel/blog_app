@@ -1,0 +1,27 @@
+{% extends 'user/base.html' %}
+
+{% load static %}
+
+{% block title%}
+
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+  <title>Home page</title>
+
+{% endblock %}
+
+{% block content %}
+
+    {% for post in posts %}
+    
+    <h3>{{ post.title }}</h3>
+    <a>{{ post.author.first_name }}</a>
+    <p>{{ post.content }}</p>
+
+
+    {% endfor %}
+
+
+
+{% endblock %}
