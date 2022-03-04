@@ -1,0 +1,62 @@
+{% extends 'user/dashtopnav.html' %}
+
+{% load static %}
+
+{% block title %}
+
+<title>Profile</title>
+
+{% endblock %}
+
+{% block content%}
+
+<h2 class="top-heading">User Profile</h2>
+
+<div class="wrap-content">
+    <div class="main-content">
+        <div class="user-profile">
+            <div class="profile-img">
+                <ul class="top-data">
+                    <li><img src="{{ user.profile.profile_img.url }}" class="user-img" alt="Image"></li>
+                    <li> {{ user.first_name }} {{user.last_name}}</li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="user-profile1">
+            <ul class="profile-data">
+                <h2 class="info2">Basic Info :</h2>
+                <li>Name : {{ user.first_name}}{{ user.last_name}}</li>
+                <li>Gender : {{user.profile.gender}}</li>
+                <li>DOB : {{user.profile.dob}}</li>
+                <li>Username : {{user.username}}</li>
+            </ul>
+        </div>
+    </div>
+        
+    <div class="user-profile2">
+        <ul class="profile-data2">
+            <h2 class="info1">Contact Info :</h2>
+            <li>Email : {{user.username}}</li>
+            <li>Mobile No. : xxxx</li>
+            <li>Username : {{user.username}}</li>
+            <li>Address : <span id="user-address"><!-- <textarea name="address" id="text-address" placeholder=""></textarea> </span> --> </li>
+        </ul>
+    
+        <div class="update-profile">
+            <a href="#" class="update-link">Update profile</a>
+        </div>
+    </div>
+</div>
+
+	<script type="text/javascript">
+		textarea = document.querySelector("#text-address");
+		textarea.addEventListener('input', autoResize, false);
+	
+		function autoResize() {
+			this.style.height = 'auto';
+			this.style.height = this.scrollHeight + 'px';
+		}
+	</script>
+
+{% endblock %}

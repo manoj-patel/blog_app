@@ -3,7 +3,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
-from .models import post
+from .models import post,comments
 
 class registration_form(UserCreationForm):
     fname = forms.CharField(max_length=200)
@@ -53,3 +53,18 @@ class post_form(ModelForm):
         post.objects.create(title=title,content=content,author=request.user)
 
     
+
+
+class comment_form(ModelForm):
+    comment = forms.Textarea()
+
+    class Meta:
+        model = comments
+        fields = ['comment']
+
+
+    # def save(self,request):
+    #     title = self.cleaned_data['title']
+    #     content = self.cleaned_data['content']
+
+    #     post.objects.create(title=title,content=content,author=request.user)

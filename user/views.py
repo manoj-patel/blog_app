@@ -6,9 +6,9 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from user.forms import registration_form,post_form
-
-from django.views.generic import ListView
+from user.forms import registration_form,post_form,comment_form
+from .models import comments
+from django.views.generic import ListView,DetailView
 # Create your views here.
 
 
@@ -75,6 +75,29 @@ class postListView(ListView):
     context_object_name = 'posts'
 
 
+from django.http.response import JsonResponse
+from django.core import serializers
+import json
+class postDetailView(DetailView):
+    model = post
+    template_name = 'user/postdetail.html'
+    context_object_name = 'post'
+
+    def get_context_data(self, **kwargs):
+
+        context = super().get_context_data(**kwargs)
+        # Add in a QuerySet of all the books
+        context['comments'] = comments.objects.filter(post_super=self.get_object()).order_by('date_comment')
+        form = comment_form()
+        context['form'] = form
+        return context
+        
+    def post(self,request,*args,**kwargs):
+        print(request.POST)
+        com = comments.objects.create(post_super=self.get_object(),comment_user=request.user,comment=request.POST['com'])
+        cmt = serializers.serialize('json', [ com, ])
+        return JsonResponse({'cmt':cmt},safe=False)
+
 
 @login_required()
 def post_post_view(request):
@@ -89,5 +112,10 @@ def post_post_view(request):
 
     return render(request,'user/blog_post.html',)
 
+
+@login_required()
+def profile_view(request):
+    user = request.user
+    return render(request,'user/profile.html',{'user':user})
 
 
